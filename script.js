@@ -21,16 +21,29 @@ async function fetchData(){
     // }
     try {
         const location = document.getElementById("location").value.toLowerCase();
-        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=c27fdce7ad84430b8fa41655262604&q=${location}`)
+        const forecast = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c27fdce7ad84430b8fa41655262604&q=${location}&days=2`)
+        const history = await fetch(`https://api.weatherapi.com/v1/history.json?key=c27fdce7ad84430b8fa41655262604&q=${location}&dt=2024-06-01`)
         
-        if(!response.ok){
+        if(!forecast.ok){
             throw new Error("Could not fetch resource")
         }
 
-        const data = await response.json();
-        const condition = data.current.condition.text;
+        const forecastData = await forecast.json();
+        const historyData = await history.json();
 
-        console.log(condition);
+        const today = forecastData.current.cloud;
+        const tomorrow = forecastData.forecast.forecastday[1].hour[23].cloud;
+        const localTime = forecastData.location.localtime;
+        console.log(typeof localTime); // typeof localTime;
+
+        console.log(localTime)
+        console.log(today)
+        console.log(tomorrow)
+        console.log(forecastData);
+
+        console.log(historyData);
+        
+        
     }catch(error){
         console.error(error)
     }
