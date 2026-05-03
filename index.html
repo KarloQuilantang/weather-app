@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Page Title</title>
+    <meta charset="utf-8">  
+    <title>Weather App</title>
+    <script src = "https://cdn.tailwindcss.com"></script>
+</h1>
 </head>
 
-<body>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <p>
 
-    <h2>Welcome To GFG</h2>
- 
-    <!-- <input type ="text" id="pokemonName" placeholder="Enter Pokemon Name">
-    <button onclick ="fetchData()"> Fetch data </button><br>
+    <div>
+        <input type ="text" id ="location" placeholder = "Enter location">
+        <button onclick = "fetchData()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Check Weather
+        </button><br>
+        <!-- // Container for Past 24 Hours -->
+        <div class ="w-full max-w-4xl mt-8">
+            <h2 class = "text-xl font-semibold mb-2 ml-4">Past 24 Hours</h2>
+            <div id = "past-24-container" class = "flex overflow-x-auto gap-4 p-4 bg-white shadow-md rounded-lg">
+
+            </div>
+        </div>
+
+        <!-- Container for Future 24 Hours -->
+        <div class = "w-full max-w-4xl mt-8">
+            <h2 class = "text-xl font-semibold mb-2 ml-4">Next 24 Hours</h2>
+            <div id = "future-24-container" class = "flex overflow-x-auto gap-4 p-4 bg-white shadow-md rounded-lg">
+
+            </div>
+        </div>
+
+    </p>
     
-    <img src = "" alt="Pokemon Sprite" id = "pokemonSprite" style ="display:none"> -->
+    </div>
 
-    <input type ="text" id ="location" placeholder = "Enter location">
-    <button onclick = "fetchData()">Fetch Data</button><br>
-    <p id = "result"></p>
     <script src="script.js"></script>
 </body>
 
