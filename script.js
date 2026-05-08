@@ -1,6 +1,5 @@
 
 async function fetchData(){
-
     try {
         const location = document.getElementById("location").value.toLowerCase();
         const forecast = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c27fdce7ad84430b8fa41655262604&q=${location}&days=2`)
